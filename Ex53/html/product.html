@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 53-K234111460</title>
+  <link rel="stylesheet" href="../css/mainstyle.css">
+  <script>
+    function updateTotals() {
+      const prices = [19.95, 29.95, 39.95];
+      const qtyInputs = document.querySelectorAll('input[id^="qty"]');
+      const itemOutputs = document.querySelectorAll('input[id^="item"]');
+      let total = 0;
+
+      qtyInputs.forEach((input, i) => {
+        const qty = parseFloat(input.value);
+        if (isNaN(qty) || qty < 0) {
+          itemOutputs[i].value = "";
+          return;
+        }
+
+        const subtotal = prices[i] * qty;
+        itemOutputs[i].value = subtotal.toFixed(2);
+        total += subtotal;
+      });
+
+      document.getElementById("total").value = total > 0 ? total.toFixed(2) : "";
+    }
+
+    function goToResult() {
+      const total = document.getElementById("total").value;
+      if (!total) {
+        alert("Please enter valid quantities before summing.");
+        return;
+      }
+      document.getElementById("regForm").submit();
+    }
+  </script>
+</head>
+
+<body>
+  <form id="regForm" action="../html/result.html" method="get">
+    <table>
+      <tr>
+        <th>Part Number</th>
+        <th>Description</th>
+        <th>Price ($)</th>
+        <th>Qty</th>
+        <th>Item Total ($)</th>
+      </tr>
+
+      <tr>
+        <td>C112</td>
+        <td>Mouse</td>
+        <td align="right">19.95</td>
+        <td><input type="number" id="qty1" name="qty1" min="0" step="1" oninput="updateTotals()"></td>
+        <td><input type="text" id="item1" name="item1" readonly></td>
+      </tr>
+
+      <tr>
+        <td>B124</td>
+        <td>Keyboard US</td>
+        <td align="right">29.95</td>
+        <td><input type="number" id="qty2" name="qty2" min="0" step="1" oninput="updateTotals()"></td>
+        <td><input type="text" id="item2" name="item2" readonly></td>
+      </tr>
+
+      <tr>
+        <td>U125</td>
+        <td>USB KingMax</td>
+        <td align="right">39.95</td>
+        <td><input type="number" id="qty3" name="qty3" min="0" step="1" oninput="updateTotals()"></td>
+        <td><input type="text" id="item3" name="item3" readonly></td>
+      </tr>
+
+      <tr class="bottom-row">
+        <td colspan="3"></td>
+        <td align="right">Total:</td>
+        <td>
+          <input type="text" id="total" name="total" readonly>
+          <input type="button" value="Sum" class="sum-btn" onclick="goToResult()">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

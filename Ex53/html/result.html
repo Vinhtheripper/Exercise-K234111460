@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>K234111460</title>
+</head>
+<body>
+	<h3>Result</h3>
+	<script>
+		const params = new URLSearchParams(window.location.search);
+		document.write("<table border='1' cellpadding='6' cellspacing='0'>");
+		document.write("<tr><th>Parameter</th><th>Value</th></tr>");
+		for (const [key, value] of params.entries()) {
+			document.write(`<tr><td>${key}</td><td>${value}</td></tr>`);
+		}
+		document.write("</table>");
+	</script>
+</body>
+</html>
