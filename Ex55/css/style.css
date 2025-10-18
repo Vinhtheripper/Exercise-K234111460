@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e9eff5;
+    margin: 0;
+}
+
+
+.solver-container {
+    width: 400px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+.title {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 12px;
+    background-color: #e0f0e3;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+td:first-child {
+    width: 60px;
+    font-weight: bold;
+    text-align: right;
+    background-color: #f7f7f7;
+}
+
+
+input[type="text"] {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+
+.button-container {
+    padding: 10px;
+    text-align: center;
+}
+
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #c0a878;
+    background-color: #fff5e1;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+button:hover {
+    background-color: #f9eac8;
+}
+
+
+#result {
+    font-weight: bold;
+    color: red;
+    font-size: 1.1em;
+}
